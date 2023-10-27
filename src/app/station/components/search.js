@@ -1,21 +1,31 @@
 "use client";
 import { useState } from "react";
 
-export default function Search() {
-  const [isSelect, setIsSelect] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsSelect(!isSelect);
+export default function Search({ onSearch }) {
+  const [query, setQuery] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(query);
+    setQuery("");
   };
-
   return (
-    <div className="relative inline-block text-[18px] leading-5 tracking-widest font-medium">
+    <form
+      onSubmit={handleSubmit}
+      className="relative inline-block text-[18px] leading-5 tracking-widest font-medium"
+    >
+      <input
+        id="searchInput"
+        name="searchInput"
+        type="text"
+        placeholder="搜尋站點"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="text-[#323232] font-normal flex justify-between items-center w-full md:w-[277px] h-[40px] pl-4 pr-9 py-[10px] gap-4 bg-[#F6F6F6] rounded-lg"
+      ></input>
       <button
-        onClick={toggleDropdown}
-        type="button"
-        className="text-[#323232] font-normal flex justify-between items-center w-full md:w-[277px] h-[40px] px-4 py-[10px] gap-4 bg-[#F6F6F6] rounded-lg"
+        type="submit"
+        className="absolute top-1/2 right-4  -translate-y-1/2"
       >
-        <div className="">搜尋站點</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -29,17 +39,6 @@ export default function Search() {
           />
         </svg>
       </button>
-
-      {isSelect && (
-        <div className="absolute mt-3 w-[175px] rounded-lg shadow-lg bg-[#F6F6F6] ring-1 ring-black ring-opacity-5">
-          <div className="flex flex-col p-4 gap-4 text-[#323232]">
-            <div className="hover:bg-gray-100 hover:text-gray-900">台北市</div>
-            <div className="text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-              新竹科學園區
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+    </form>
   );
 }

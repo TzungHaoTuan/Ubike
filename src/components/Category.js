@@ -16,11 +16,21 @@ export default function Category() {
        top-[101px] lg:top-0 left-0 p-8 lg:p-0 z-10 items-start lg:items-center lg:pl-[60px] gap-10
        w-full h-full text-white lg:text-[#677510] bg-[#B5CC22] lg:bg-white font-medium`}
       >
-        <Link href="/">使用說明</Link>
-        <Link href="/">收費方式</Link>
-        <Link href="/station">站點資訊</Link>
-        <Link href="/">最新消息</Link>
-        <Link href="/">活動專區</Link>
+        <div onClick={handleMenuToggle}>
+          <Link href="/instruction">使用說明</Link>
+        </div>
+        <div onClick={handleMenuToggle}>
+          <Link href="/charge">收費方式</Link>
+        </div>
+        <div onClick={handleMenuToggle}>
+          <Link href="/station">站點資訊</Link>
+        </div>
+        <div onClick={handleMenuToggle}>
+          <Link href="/news">最新消息</Link>
+        </div>
+        <div onClick={handleMenuToggle}>
+          <Link href="/activity">活動專區</Link>
+        </div>
         <Login />
       </div>
 
