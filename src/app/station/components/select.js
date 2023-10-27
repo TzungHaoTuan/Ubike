@@ -21,17 +21,23 @@ export default function Select({ taipeiStationData }) {
   const selectCity = (city) => {
     setCity(city);
     toggleDropdown();
-    handleSearch("");
+    setStation([]);
   };
   const handleSearch = (term) => {
+    if (!term) return;
     if (cities.includes(term)) {
       setCity(term);
-    }
-    const stationSearched = stations.filter((station) =>
-      station.includes(term)
-    );
-    if (stationSearched.length > 0) {
-      setStation(stationSearched);
+      setStation([]);
+    } else {
+      setCity("選擇縣市");
+      const stationSearched = stations.filter((station) =>
+        station.includes(term)
+      );
+      if (stationSearched.length > 0) {
+        setStation(stationSearched);
+      } else {
+        setStation([]);
+      }
     }
   };
 

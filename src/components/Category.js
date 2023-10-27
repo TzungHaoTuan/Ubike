@@ -13,7 +13,7 @@ export default function Category() {
       <div
         className={`${isMenuOpen ? "" : "hidden"}
       flex lg:flex flex-col lg:flex-row absolute lg:relative
-       top-[101px] lg:top-0 left-0 p-8 lg:p-0 z-10 items-start lg:items-center lg:pl-[60px] gap-10
+       top-[72px] lg:top-0 left-0 p-8 lg:p-0 z-10 items-start lg:items-center lg:pl-[60px] gap-10
        w-full h-full text-white lg:text-[#677510] bg-[#B5CC22] lg:bg-white font-medium`}
       >
         <div onClick={handleMenuToggle}>

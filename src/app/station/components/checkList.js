@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "./Form";
 import Image from "next/image";
 import Scenario from "../../../assets/scenario.png";
@@ -14,6 +14,10 @@ export default function CheckList({
   const [isChecked, setIsChecked] = useState(district);
   const [allChecked, setAllChecked] = useState(true);
 
+  useEffect(() => {
+    setIsChecked(district);
+    setAllChecked(true);
+  }, [city]);
   const handleAllChecked = () => {
     setAllChecked((prev) => {
       const newAllChecked = !prev;
