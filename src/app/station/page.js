@@ -1,6 +1,5 @@
 import React from "react";
 import Select from "./components/Select";
-import GetUbikeData from "../utils/GetUbikeData";
 
 async function getData() {
   try {
@@ -19,7 +18,6 @@ async function getData() {
 
 export default async function Page() {
   const taipeiStationData = await getData();
-  // console.log(taipeiStationData);
 
   return (
     <div className="flex flex-col pt-6 pb-11">
